@@ -1,7 +1,8 @@
-import kitronik = kitronik_motor_driver;
+//This is a robot linefollowing code with one sensor
+
+import kitronik = kitronik_motor_driver
 
 let Left_Detector = 0
-let Right_Detector = 0
 
 pins.setPull(DigitalPin.P1, PinPullMode.PullUp)
 pins.setPull(DigitalPin.P2, PinPullMode.PullUp)

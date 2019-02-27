@@ -7,8 +7,8 @@ let Left_Detector = 0
 pins.setPull(DigitalPin.P1, PinPullMode.PullUp)
 pins.setPull(DigitalPin.P2, PinPullMode.PullUp)
 
-//0 is black line
-//1 is white line
+//0 is the black line
+//1 is the white background
 
 basic.forever(function () {
     Left_Detector = pins.digitalReadPin(DigitalPin.P1) 

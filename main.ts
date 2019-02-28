@@ -7,7 +7,6 @@ let Left_Detector = 0
 let black = 0
 let white = 1
 
-
 pins.setPull(DigitalPin.P1, PinPullMode.PullUp)
 pins.setPull(DigitalPin.P2, PinPullMode.PullUp)
 

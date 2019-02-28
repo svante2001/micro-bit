@@ -1,6 +1,6 @@
+//Code for the micro:bot to follow a line with 2 light sensors
+
 import kitronik = kitronik_motor_driver
-
-
 
 let Right_Detector = 0
 let Left_Detector = 0

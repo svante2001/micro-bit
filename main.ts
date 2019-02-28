@@ -30,4 +30,4 @@ basic.forever(function () {
         kitronik.motorOn(kitronik.Motors.Motor1, kitronik.MotorDirection.Forward, 15)
         kitronik.motorOn(kitronik.Motors.Motor2, kitronik.MotorDirection.Reverse, 30)
     }
-})
+}) 

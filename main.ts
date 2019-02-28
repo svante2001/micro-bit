@@ -1,5 +1,6 @@
 import kitronik = kitronik_motor_driver
 
+let test = 0
 let Right_Detector = 0
 let Left_Detector = 0
 let black = 0

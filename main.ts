@@ -46,6 +46,8 @@ pins.setPull(DigitalPin.P2, PinPullMode.PullUp)
 //0 is the black line
 //1 is the white background
  
+// testing of showNumber
+
  basic.forever(function() {
 if (Right_Detector = 1){
     basic.showNumber(count)

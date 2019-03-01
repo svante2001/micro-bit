@@ -2,7 +2,6 @@
 
 import kitronik = kitronik_motor_driver;
 
-
 function runForMS(motor1: number, motor2: number, ms: number) {
     let running = true;
     control.inBackground(() => {

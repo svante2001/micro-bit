@@ -50,7 +50,7 @@ pins.setPull(DigitalPin.P2, PinPullMode.PullUp)
 if (Right_Detector = 1){
     basic.showNumber(count)
 } else if (Right_Detector = 0){
-    runForMS(0, 0, 1000)
+    runForMS(0, 0, 2000)
     count ++ 
     basic.showNumber(count)
     }

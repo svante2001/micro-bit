@@ -42,7 +42,7 @@ pins.setPull(DigitalPin.P2, PinPullMode.PullUp)
     basic.pause(ms)
     running = false
  }
-   
+
 //0 is the black line
 //1 is the white background
  
@@ -51,7 +51,31 @@ if (Right_Detector = 1){
     basic.showNumber(count)
 } else if (Right_Detector = 0){
     runForMS(0, 0, 2000)
-    count ++ 
+    count ++
     basic.showNumber(count)
+    }
+ })
+
+// Count lines while following main line
+
+ basic.forever(function() {
+    if (Right_Detector == 1 && Left_Detector == 1){
+        kitronik.motorOn(kitronik.Motors.Motor1, kitronik.MotorDirection.Reverse, 40)
+        kitronik.motorOn(kitronik.Motors.Motor2, kitronik.MotorDirection.Forward, 10)
+        basic.showNumber(count)
+    } else if (Right_Detector == 1 && Left_Detector == 0){
+        kitronik.motorOn(kitronik.Motors.Motor2, kitronik.MotorDirection.Reverse, 40)
+        kitronik.motorOn(kitronik.Motors.Motor1, kitronik.MotorDirection.Forward, 10)
+        basic.showNumber(count)
+    } else if (Right_Detector == 0 && Left_Detector == 1){
+        kitronik.motorOn(kitronik.Motors.Motor1, kitronik.MotorDirection.Reverse, 40)
+        kitronik.motorOn(kitronik.Motors.Motor2, kitronik.MotorDirection.Forward, 10)
+        count ++
+        basic.showNumber(count)
+    } else if (Right_Detector == 0 && Left_Detector == 0){
+        kitronik.motorOn(kitronik.Motors.Motor2, kitronik.MotorDirection.Reverse, 40)
+        kitronik.motorOn(kitronik.Motors.Motor1, kitronik.MotorDirection.Forward, 10)
+        count ++
+        basic.showNumber(count)
     }
  })

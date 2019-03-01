@@ -44,11 +44,11 @@ function runForMS(motor1: number, motor2: number, ms: number) {
     running = false
 }
 
+// Left motor, right motor, time in MS, see examples below
 // runForMS(10, 10, 10)
 // runForMS(0, 0, 10)
 // runForMS(-10, -10, 10)
 // runForMS(0, 0, 10)
-// Left motor, right motor, time in MS
 
 input.onButtonPressed(Button.A, function () {
     runForMS(30, 30, 1000)

@@ -2,12 +2,6 @@
 
 import kitronik = kitronik_motor_driver;
 
-let Left_Detector = 0
-let Right_Detector = 0
-
-pins.setPull(DigitalPin.P1, PinPullMode.PullUp)
-pins.setPull(DigitalPin.P2, PinPullMode.PullUp)
-
 
 function runForMS(motor1: number, motor2: number, ms: number) {
     let running = true;

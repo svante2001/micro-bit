@@ -46,21 +46,24 @@ pins.setPull(DigitalPin.P2, PinPullMode.PullUp)
 //0 is the black line
 //1 is the white background
  
-// testing of showNumber
+// testing of showNumber with sensor
 
- basic.forever(function() {
-if (Right_Detector = 1){
-    basic.showNumber(count)
-} else if (Right_Detector = 0){
-    runForMS(0, 0, 2000)
-    count ++
-    basic.showNumber(count)
+basic.forever(function() {
+    Right_Detector = pins.digitalReadPin(DigitalPin.P2) 
+    if (Right_Detector = 1){
+        basic.showNumber(count)
+    } else if (Right_Detector = 0){
+        runForMS(0, 0, 2000)
+        count ++
+        basic.showNumber(count)
     }
- })
+})
 
 // Count lines while following main line
 
  basic.forever(function() {
+    Left_Detector = pins.digitalReadPin(DigitalPin.P1) 
+    Right_Detector = pins.digitalReadPin(DigitalPin.P2) 
     if (Right_Detector == 1 && Left_Detector == 1){
         kitronik.motorOn(kitronik.Motors.Motor1, kitronik.MotorDirection.Reverse, 40)
         kitronik.motorOn(kitronik.Motors.Motor2, kitronik.MotorDirection.Forward, 10)

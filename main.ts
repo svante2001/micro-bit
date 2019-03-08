@@ -1,5 +1,5 @@
 //count lines
- import kitronik = kitronik_motor_driver
+import kitronik = kitronik_motor_driver
 
 let Right_Detector = 0
 let Left_Detector = 0
@@ -46,13 +46,13 @@ pins.setPull(DigitalPin.P2, PinPullMode.PullUp)
 //0 is the black line
 //1 is the white background
  
-// testing of showNumber with sensor to calibrate. Out comment line 62-84
+// Testing of showNumber with sensor to calibrate. Out comment line 62-84
 
 basic.forever(function() {
     Right_Detector = pins.digitalReadPin(DigitalPin.P2) 
-    if (Right_Detector == 1){
+    if (Right_Detector == 1) {
         basic.showNumber(count)
-    } else if (Right_Detector == 0){
+    } else if (Right_Detector == 0) {
         runForMS(0, 0, 2000)
         count ++
         basic.showNumber(count)

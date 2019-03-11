@@ -53,17 +53,17 @@ basic.forever(function() {
     if (Right_Detector == 1) {
         basic.showNumber(count)
     } else if (Right_Detector == 0) {
-        runForMS(0, 0, 2000)
         count ++
         basic.showNumber(count)
+        runForMS(0, 0, 2000)
     }
 })
 
 // Count lines while following main line
 
 basic.forever(function() {
-    Left_Detector = pins.digitalReadPin(DigitalPin.P1) 
-    Right_Detector = pins.digitalReadPin(DigitalPin.P2) 
+    Left_Detector = pins.digitalReadPin(DigitalPin.P1)
+    Right_Detector = pins.digitalReadPin(DigitalPin.P2)
     if (Left_Detector == 1) {
         kitronik.motorOn(kitronik.Motors.Motor1, kitronik.MotorDirection.Reverse, 40)
         kitronik.motorOn(kitronik.Motors.Motor2, kitronik.MotorDirection.Forward, 10)
@@ -73,12 +73,13 @@ basic.forever(function() {
         kitronik.motorOn(kitronik.Motors.Motor1, kitronik.MotorDirection.Forward, 10)
         basic.showNumber(count)
     } else if (Left_Detector == 1) {
-        runForMS(-40, -40, 2000)
         count ++
         basic.showNumber(count)
-    } if (count == 2) { //how many lines to drive past
+        runForMS(-40, -40, 2000)
+    } 
+    if (count == 2) { //how many lines to drive past
         runForMS(20, -20, 2000) //turn off the main line
         kitronik.motorOff(kitronik.Motors.Motor1)
-        kitronik.motorOff(kitronik.Motors.Motor2)        
+        kitronik.motorOff(kitronik.Motors.Motor2)
     }
 })

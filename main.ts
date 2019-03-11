@@ -8,7 +8,7 @@ let count = 0
 pins.setPull(DigitalPin.P1, PinPullMode.PullUp)
 pins.setPull(DigitalPin.P2, PinPullMode.PullUp)
 
- function runForMS(motor1: number, motor2: number, ms: number) {
+function runForMS(motor1: number, motor2: number, ms: number) {
     let running = true
     control.inBackground(() => {
         if (motor1 === 0) {
@@ -41,7 +41,7 @@ pins.setPull(DigitalPin.P2, PinPullMode.PullUp)
     })
     basic.pause(ms)
     running = false
- }
+}
 
 //0 is the black line
 //1 is the white background
@@ -61,25 +61,29 @@ basic.forever(function() {
 
 // Count lines while following main line
 
-basic.forever(function() {
-    Left_Detector = pins.digitalReadPin(DigitalPin.P1)
-    Right_Detector = pins.digitalReadPin(DigitalPin.P2)
-    if (Left_Detector == 1) {
-        kitronik.motorOn(kitronik.Motors.Motor1, kitronik.MotorDirection.Reverse, 40)
-        kitronik.motorOn(kitronik.Motors.Motor2, kitronik.MotorDirection.Forward, 10)
-        basic.showNumber(count)
-    } else if (Left_Detector == 0) {
-        kitronik.motorOn(kitronik.Motors.Motor2, kitronik.MotorDirection.Reverse, 40)
-        kitronik.motorOn(kitronik.Motors.Motor1, kitronik.MotorDirection.Forward, 10)
-        basic.showNumber(count)
-    } else if (Left_Detector == 1) {
-        count ++
-        basic.showNumber(count)
-        runForMS(-40, -40, 2000)
-    } 
-    if (count == 2) { //how many lines to drive past
-        runForMS(20, -20, 2000) //turn off the main line
-        kitronik.motorOff(kitronik.Motors.Motor1)
-        kitronik.motorOff(kitronik.Motors.Motor2)
-    }
+control.inBackground(function () {
+    basic.forever(function () {
+        let Left_Detector = pins.digitalReadPin(DigitalPin.P2)
+        if (Left_Detector == 1) {
+            kitronik.motorOn(kitronik.Motors.Motor2, kitronik.MotorDirection.Reverse, 40)
+            kitronik.motorOn(kitronik.Motors.Motor1, kitronik.MotorDirection.Forward, 10)
+        } else if (Left_Detector == 0) {
+            kitronik.motorOn(kitronik.Motors.Motor1, kitronik.MotorDirection.Reverse, 40)
+            kitronik.motorOn(kitronik.Motors.Motor2, kitronik.MotorDirection.Forward, 10)
+        }
+        basic.pause(10)
+    })
+})
+
+control.inBackground(function () {
+    basic.forever(function () {
+        Right_Detector = pins.digitalReadPin(DigitalPin.P1)
+        if (Right_Detector == 1) {
+            basic.showNumber(count)
+        } else {
+            count++
+            basic.showNumber(count)
+        }
+        basic.pause(10)
+    })
 })

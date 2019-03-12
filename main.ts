@@ -46,7 +46,7 @@ function runForMS(motor1: number, motor2: number, ms: number) {
 //0 is the black line
 //1 is the white background
  
-// Testing of showNumber with sensor to calibrate. Out comment line 62-84
+// Testing of showNumber with sensor to calibrate. Out comment line 64-89
 
 basic.forever(function() {
     Right_Detector = pins.digitalReadPin(DigitalPin.P2) 
@@ -77,7 +77,7 @@ control.inBackground(function () {
 
 control.inBackground(function () {
     basic.forever(function () {
-        Right_Detector = pins.digitalReadPin(DigitalPin.P1)
+        let Right_Detector = pins.digitalReadPin(DigitalPin.P1)
         if (Right_Detector == 1) {
             basic.showNumber(count)
         } else {

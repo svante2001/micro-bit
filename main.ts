@@ -1,4 +1,4 @@
-// //count lines
+//count lines
 import kitronik = kitronik_motor_driver
 
 let Left = 0
@@ -8,7 +8,7 @@ let count = 0
 pins.setPull(DigitalPin.P1, PinPullMode.PullUp)
 pins.setPull(DigitalPin.P2, PinPullMode.PullUp)
 
-// //set up for runForMS
+//set up for runForMS
 
 function runForMS(motor1: number, motor2: number, ms: number) {
    let running = true
@@ -47,10 +47,10 @@ function runForMS(motor1: number, motor2: number, ms: number) {
 
 // 0 is the black line
 // 1 is the white background
-//left sensor = P1
-//mid sensor = P2
+// left sensor = P1
+// mid sensor = P2
 
-// // Testing of showNumber with sensor to calibrate. Out comment line 64-89
+// Testing of showNumber with sensor to calibrate. Out comment line 64-89
 
 basic.forever(function() {
    Left = pins.digitalReadPin(DigitalPin.P2) 
@@ -63,7 +63,7 @@ basic.forever(function() {
    }
 })
 
-// // Count lines while following main line
+// Count lines while following main line
 
 control.inBackground(function () {
    basic.forever(function () {
@@ -71,9 +71,11 @@ control.inBackground(function () {
        if (Mid == 1) {
            kitronik.motorOn(kitronik.Motors.Motor2, kitronik.MotorDirection.Reverse, 40)
            kitronik.motorOn(kitronik.Motors.Motor1, kitronik.MotorDirection.Forward, 20)
+           basic.showNumber(count)
        } else if (Mid == 0) {
            kitronik.motorOn(kitronik.Motors.Motor1, kitronik.MotorDirection.Reverse, 40)
            kitronik.motorOn(kitronik.Motors.Motor2, kitronik.MotorDirection.Forward, 20)
+           basic.showNumber(count)
        }
        basic.pause(10)
    })

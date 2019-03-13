@@ -45,8 +45,8 @@ function runForMS(motor1: number, motor2: number, ms: number) {
    running = false
 }
 
-// //0 is the black line
-// //1 is the white background
+// 0 is the black line
+// 1 is the white background
 //left sensor = P1
 //mid sensor = P2
 

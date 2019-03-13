@@ -14,7 +14,7 @@ basic.forever(function () {
      if (Left_Detector == 1) {
         kitronik.motorOn(kitronik.Motors.Motor1, kitronik.MotorDirection.Reverse, 40)
         kitronik.motorOn(kitronik.Motors.Motor2, kitronik.MotorDirection.Forward, 10)
-    } else if (Left_Detector = 0) {
+    } else if (Left_Detector == 0) {
         kitronik.motorOn(kitronik.Motors.Motor2, kitronik.MotorDirection.Reverse, 40)
         kitronik.motorOn(kitronik.Motors.Motor1, kitronik.MotorDirection.Forward, 10)
     }
